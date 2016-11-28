@@ -18,13 +18,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-$ php composer.phar require cinghie/yii2-tcpdf "dev-master"
+$ php composer.phar require devtrekker/yii2-tcpdf "dev-master"
 ```
 
 or add
 
 ```
-"cinghie/yii2-tcpdf": "dev-master"
+"devtrekker/yii2-tcpdf": "dev-master"
 ```
 
 to the ```require``` section of your `composer.json` file.
@@ -37,16 +37,19 @@ to the ```require``` section of your `composer.json` file.
 ...
 		// Yii2 TCPDF
 		'tcpdf' => [
-			'class' => 'cinghie\tcpdf\TCPDF',
+			'class' => 'devtrekker\tcpdf\TCPDF',
 		],
 		...
 ]</pre>
 	</li>
 	<li>Add in your SiteController the action:
-		<pre>public function actionTcpdf()
+		<pre>use yii\web\Response;
+    ...
+    public function actionTcpdf()
     {
-		return $this->render('tcpdf');
-	}</pre>
+        Yii::$app->response->format = Response::FORMAT_RAW;  // Raw for PDF output
+	return $this->render('tcpdf');
+    }</pre>
 	</li>
 	<li>Add in your view/site folder the file tcpdf.php from example folder</li>
 	<li>Now you can view the example at the links: 
