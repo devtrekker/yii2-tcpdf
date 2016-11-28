@@ -48,7 +48,7 @@ to the ```require``` section of your `composer.json` file.
     public function actionTcpdf()
     {
         Yii::$app->response->format = Response::FORMAT_RAW;  // Raw for PDF output
-	return $this->render('tcpdf');
+        return $this->render('tcpdf');
     }</pre>
 	</li>
 	<li>Add in your view/site folder the file tcpdf.php from example folder</li>
